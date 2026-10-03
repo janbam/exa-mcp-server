@@ -30,13 +30,13 @@ When validating a source's credibility (for expert-finding and best-of queries):
 
 ```
 // Who cites them?
-web_search_exa { "query": "[name] recommended by experts practitioners", "numResults": 5 }
+WebSearch { "query": "[name] recommended by experts practitioners", "numResults": 5 }
 
 // Track record?
-web_search_exa { "query": "[name] results portfolio case study shipped", "numResults": 5 }
+WebSearch { "query": "[name] results portfolio case study shipped", "numResults": 5 }
 
 // Criticism?
-web_search_exa { "query": "[name] criticism overrated wrong", "numResults": 5 }
+WebSearch { "query": "[name] criticism overrated wrong", "numResults": 5 }
 ```
 
 Only run verification searches when the task specifically calls for evaluating source credibility. For standard search tasks, just tag what you observe from the content you already have.

@@ -46,7 +46,7 @@ describe("registerWebSearchTool", () => {
       mcpSessionId: "session-123",
     });
 
-    const result = await server.getTool("web_search_exa").handler({
+    const result = await server.getTool("WebSearch").handler({
       query: "category:news AI breakthroughs",
       numResults: 2,
     });
@@ -88,7 +88,7 @@ describe("registerWebSearchTool", () => {
       defaultSearchType: "instant",
     });
 
-    await server.getTool("web_search_exa").handler({
+    await server.getTool("WebSearch").handler({
       query: "AI breakthroughs",
     });
 
@@ -111,7 +111,7 @@ describe("registerWebSearchTool", () => {
     registerWebSearchTool(server as any);
 
     await expect(
-      server.getTool("web_search_exa").handler({
+      server.getTool("WebSearch").handler({
         query: "nothing",
       }),
     ).resolves.toEqual({

@@ -10,11 +10,11 @@ import { checkpoint } from "agnost";
 
 export function registerWebSearchAdvancedTool(server: McpServer, config?: { exaApiKey?: string; userProvidedApiKey?: boolean }): void {
   server.tool(
-    "web_search_advanced_exa",
+    "WebSearchAdvanced",
     `Advanced web search with full control over filters, domains, dates, and content options.
 
 Best for: When you need specific filters like date ranges, domain restrictions, or category filters.
-Not recommended for: Simple searches - use web_search_exa instead.
+Not recommended for: Simple searches - use WebSearch instead.
 Returns: Search results with optional highlights, summaries, and subpage content.`,
     {
       query: lenientString().describe("Search query - can be a question, statement, or keywords"),
@@ -65,7 +65,7 @@ Returns: Search results with optional highlights, summaries, and subpage content
       idempotentHint: true
     },
     async (params) => {
-      const logger = createRequestLogger('web_search_advanced_exa');
+      const logger = createRequestLogger('WebSearchAdvanced');
 
       logger.start(params.query);
 
@@ -170,7 +170,7 @@ Returns: Search results with optional highlights, summaries, and subpage content
             integrationHeaders('web-search-advanced-mcp', config)
           )),
           API_CONFIG.TOOL_TIMEOUTS.ADVANCED_SEARCH_MS,
-          'web_search_advanced_exa',
+          'WebSearchAdvanced',
         );
 
         checkpoint('exa_advanced_search_response_received');
@@ -207,7 +207,7 @@ Returns: Search results with optional highlights, summaries, and subpage content
         return result;
       } catch (error) {
         logger.error(error);
-        return formatToolError(error, 'web_search_advanced_exa', config?.userProvidedApiKey);
+        return formatToolError(error, 'WebSearchAdvanced', config?.userProvidedApiKey);
       }
     }
   );

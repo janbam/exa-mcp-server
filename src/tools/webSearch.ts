@@ -18,7 +18,7 @@ type WebSearchConfig = {
 
 export function registerWebSearchTool(server: McpServer, config?: WebSearchConfig, toolName?: string): void {
   server.tool(
-    toolName || "web_search_exa",
+    toolName || "WebSearch",
     `Search the web for any topic and get clean, ready-to-use content.
 
       Best for: Finding current information, news, facts, people, companies, or answering questions about any topic.
@@ -39,7 +39,7 @@ export function registerWebSearchTool(server: McpServer, config?: WebSearchConfi
       idempotentHint: true
     },
     async ({ query, numResults }) => {
-      const toolId = toolName || 'web_search_exa';
+      const toolId = toolName || 'WebSearch';
       const logger = createRequestLogger(toolId);
 
       // Extract category:<type> from query string if present

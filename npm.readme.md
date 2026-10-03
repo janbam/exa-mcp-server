@@ -1,5 +1,7 @@
 # Exa MCP Server
 
+These examples target Exa's published npm package and hosted service. A local build of this fork instead exposes `WebSearch` and `WebSearchAdvanced`.
+
 [![npm version](https://badge.fury.io/js/exa-mcp-server.svg)](https://www.npmjs.com/package/exa-mcp-server)
 
 Connect AI assistants to Exa's search capabilities using the npm package.

@@ -93,7 +93,7 @@ Then do the following:
 
 Return: [output format -- e.g. "compact JSON with name, url, snippet per result" or "markdown table with columns X, Y, Z"].
 
-End with EXACTLY: `sources_reviewed: N` where N = sum of `numResults` across every `web_search_exa` call (incl. retries). E.g. calls with numResults 10, 10, 5 → `sources_reviewed: 25`.
+End with EXACTLY: `sources_reviewed: N` where N = sum of `numResults` across every `WebSearch` call (incl. retries). E.g. calls with numResults 10, 10, 5 → `sources_reviewed: 25`.
 ```
 
 **Pass the `sources_reviewed` instruction line to every subagent verbatim — don't paraphrase.**
