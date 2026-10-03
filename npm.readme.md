@@ -1,5 +1,7 @@
 # Exa MCP Server
 
+These examples target Exa's published npm package and hosted service. A local build of this fork instead exposes `WebSearch` and `WebSearchAdvanced`.
+
 [![npm version](https://badge.fury.io/js/exa-mcp-server.svg)](https://www.npmjs.com/package/exa-mcp-server)
 
 Connect AI assistants to Exa's search capabilities using the npm package.
@@ -215,13 +217,13 @@ Standard `mcpServers` format:
 **Enabled by Default:**
 | Tool | Description |
 | ---- | ----------- |
-| `WebSearch` | Search the web for any topic and get clean, ready-to-use content |
+| `web_search_exa` | Search the web for any topic and get clean, ready-to-use content |
 | `web_fetch_exa` | Get the full content of a specific webpage from a known URL |
 
 **Off by Default:**
 | Tool | Description |
 | ---- | ----------- |
-| `WebSearchAdvanced` | Advanced web search with full control over filters, domains, dates, and content options |
+| `web_search_advanced_exa` | Advanced web search with full control over filters, domains, dates, and content options |
 
 **[Exa Agent](https://exa.ai/docs/reference/agent-api-guide) Tools** (optional, API key required):
 | Tool | Description |
@@ -232,19 +234,19 @@ Standard `mcpServers` format:
 
 | Tool | Use instead |
 | ---- | ----------- |
-| `get_code_context_exa` | `WebSearch` |
-| `company_research_exa` | `WebSearchAdvanced` |
+| `get_code_context_exa` | `web_search_exa` |
+| `company_research_exa` | `web_search_advanced_exa` |
 | `crawling_exa` | `web_fetch_exa` |
-| `people_search_exa` | `WebSearchAdvanced` |
-| `linkedin_search_exa` | `WebSearchAdvanced` |
+| `people_search_exa` | `web_search_advanced_exa` |
+| `linkedin_search_exa` | `web_search_advanced_exa` |
 | `deep_researcher_start` | [Research API](https://docs.exa.ai/reference/research/create-a-task) |
 | `deep_researcher_check` | [Research API](https://docs.exa.ai/reference/research/get-a-task) |
-| `deep_search_exa` | `WebSearchAdvanced` |
+| `deep_search_exa` | `web_search_advanced_exa` |
 
 Enable additional tools with the `tools` parameter:
 
 ```
-https://mcp.exa.ai/mcp?exaApiKey=YOUR_KEY&tools=WebSearch,WebSearchAdvanced,web_fetch_exa
+https://mcp.exa.ai/mcp?exaApiKey=YOUR_KEY&tools=web_search_exa,web_search_advanced_exa,web_fetch_exa
 ```
 
 If you want to use Exa Agent, enable the optional toolset like so:
@@ -256,7 +258,7 @@ https://mcp.exa.ai/mcp?tools=agent_tools
 If you want both search and Exa Agent tools enabled:
 
 ```
-https://mcp.exa.ai/mcp?tools=WebSearch,web_fetch_exa,agent_tools
+https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa,agent_tools
 ```
 
 See the [full documentation](https://docs.exa.ai/reference/exa-mcp) for more details on tool configuration.
