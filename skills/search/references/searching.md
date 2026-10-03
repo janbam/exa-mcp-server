@@ -1,10 +1,10 @@
 # Searching with Exa
 
 You have two tools:
-- **`web_search_exa`** -- search by query. Supports `query` and `numResults` params. Use `category:<type>` inline in the query string for category filtering.
+- **`WebSearch`** -- search by query. Supports `query` and `numResults` params. Use `category:<type>` inline in the query string for category filtering.
 - **`web_fetch_exa`** -- read full content from known URLs. Use after search when snippets are insufficient.
 
-Do NOT use `web_search_advanced_exa` or any other Exa tools. Only use these two tools -- do not use Bash, Grep, Read, or Write to process results. Filter and summarize results inline.
+Do NOT use `WebSearchAdvanced` or any other Exa tools. Only use these two tools -- do not use Bash, Grep, Read, or Write to process results. Filter and summarize results inline.
 
 ## How Exa Search Works
 
@@ -35,9 +35,9 @@ Never use numResults above 25. If you need more coverage, run more queries with 
 **Use category filters** when searching for a specific entity type. Available inline categories: `company`, `publication`, `news`, `personal site`, `people`. Add `category:<type>` at the start of your query string.
 
 ```
-web_search_exa { "query": "category:publication sparse attention mechanisms for long context", "numResults": 10 }
-web_search_exa { "query": "category:people VP Engineering AI infrastructure San Francisco", "numResults": 10 }
-web_search_exa { "query": "category:company developer tools for API testing", "numResults": 10 }
+WebSearch { "query": "category:publication sparse attention mechanisms for long context", "numResults": 10 }
+WebSearch { "query": "category:people VP Engineering AI infrastructure San Francisco", "numResults": 10 }
+WebSearch { "query": "category:company developer tools for API testing", "numResults": 10 }
 ```
 
 ## Query Diversity

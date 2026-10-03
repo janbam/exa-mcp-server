@@ -77,14 +77,14 @@ export function initializeMcpServer(server: any, config: McpConfig = {}) {
     // Register tools based on configuration
     const registeredTools: string[] = [];
 
-    if (canRegisterTool('web_search_exa')) {
+    if (canRegisterTool('WebSearch')) {
       registerWebSearchTool(server, config);
-      registeredTools.push('web_search_exa');
+      registeredTools.push('WebSearch');
     }
 
-    if (canRegisterTool('web_search_advanced_exa')) {
+    if (canRegisterTool('WebSearchAdvanced')) {
       registerWebSearchAdvancedTool(server, config);
-      registeredTools.push('web_search_advanced_exa');
+      registeredTools.push('WebSearchAdvanced');
     }
 
     if (canRegisterTool('company_research_exa')) {

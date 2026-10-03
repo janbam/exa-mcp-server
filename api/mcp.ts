@@ -325,7 +325,7 @@ async function checkRateLimits(ip: string | null, count: number, debug: boolean)
  * - ?exaApiKey=YOUR_KEY - Pass API key via URL (backwards compatible)
  * 
  * Other URL query parameters:
- * - ?tools=web_search_exa,web_fetch_exa - Enable specific tools
+ * - ?tools=WebSearch,web_fetch_exa - Enable specific tools
  * - ?debug=true - Enable debug logging
  * - ?agentCallWindowMs=45000 - Set the agent_run call window in milliseconds
  *

@@ -559,12 +559,12 @@ describe("api/mcp handler", () => {
 
   it("allows unauthenticated requests when only public tools are selected", async () => {
     const { response, config } = await callHandleRequest(
-      new Request("https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa"),
+      new Request("https://mcp.exa.ai/mcp?tools=WebSearch,web_fetch_exa"),
     );
 
     expect(response.status).toBe(200);
     expect(config).toMatchObject({
-      enabledTools: ["web_search_exa", "web_fetch_exa"],
+      enabledTools: ["WebSearch", "web_fetch_exa"],
       userProvidedApiKey: false,
       authMethod: "free_tier",
     });
@@ -615,7 +615,7 @@ describe("api/mcp handler", () => {
 
   it("returns 401 with WWW-Authenticate when ?login is set and no credentials are present (#378)", async () => {
     const { response, config } = await callHandleRequest(
-      new Request("https://mcp.exa.ai/mcp?login&tools=web_search_exa"),
+      new Request("https://mcp.exa.ai/mcp?login&tools=WebSearch"),
     );
 
     expect(response.status).toBe(401);
@@ -646,7 +646,7 @@ describe("api/mcp handler", () => {
 
   it("does not force OAuth when login=false so free-tier remains available", async () => {
     const { response, config } = await callHandleRequest(
-      new Request("https://mcp.exa.ai/mcp?login=false&tools=web_search_exa"),
+      new Request("https://mcp.exa.ai/mcp?login=false&tools=WebSearch"),
     );
 
     expect(response.status).toBe(200);

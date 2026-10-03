@@ -23,12 +23,12 @@ const configSchema = {
     "tools": {
       "type": "string",
       "title": "Enabled Tools",
-      "description": "Comma-separated list of tools to enable. Leave empty for defaults (web_search_exa, web_fetch_exa). Agent tools require OAuth or an API key.",
+      "description": "Comma-separated list of tools to enable. Leave empty for defaults (WebSearch, web_fetch_exa). Agent tools require OAuth or an API key.",
       "examples": [
-        "web_search_exa,web_search_advanced_exa",
-        "web_search_exa,web_search_advanced_exa,web_fetch_exa",
+        "WebSearch,WebSearchAdvanced",
+        "WebSearch,WebSearchAdvanced,web_fetch_exa",
         "agent_tools",
-        "web_search_exa,agent_tools"
+        "WebSearch,agent_tools"
       ],
       "x-available-values": AVAILABLE_TOOL_SELECTION_VALUES
     },

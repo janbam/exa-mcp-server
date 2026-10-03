@@ -314,13 +314,13 @@ Use the npm package with your API key. [Get your API key](https://dashboard.exa.
 **Enabled by Default:**
 | Tool | Description |
 | ---- | ----------- |
-| `web_search_exa` | Search the web for any topic and get clean, ready-to-use content |
+| `WebSearch` | Search the web for any topic and get clean, ready-to-use content |
 | `web_fetch_exa` | Get the full content of a specific webpage from a known URL |
 
 **Off by Default:**
 | Tool | Description |
 | ---- | ----------- |
-| `web_search_advanced_exa` | Advanced web search with full control over filters, domains, dates, and content options |
+| `WebSearchAdvanced` | Advanced web search with full control over filters, domains, dates, and content options |
 
 **[Exa Agent](https://exa.ai/docs/reference/agent-api-guide) Tools** (optional, OAuth or API key required):
 | Tool | Description |
@@ -330,7 +330,7 @@ Use the npm package with your API key. [Get your API key](https://dashboard.exa.
 Enable additional tools with the `tools` parameter:
 
 ```
-https://mcp.exa.ai/mcp?exaApiKey=YOUR_KEY&tools=web_search_exa,web_search_advanced_exa,web_fetch_exa
+https://mcp.exa.ai/mcp?exaApiKey=YOUR_KEY&tools=WebSearch,WebSearchAdvanced,web_fetch_exa
 ```
 
 If you want to use Exa Agent, enable the optional toolset like so:
@@ -342,7 +342,7 @@ https://mcp.exa.ai/mcp?tools=agent_tools
 If you want both search and Exa Agent tools enabled:
 
 ```
-https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa,agent_tools
+https://mcp.exa.ai/mcp?tools=WebSearch,web_fetch_exa,agent_tools
 ```
 
 ### Force OAuth login
@@ -362,8 +362,8 @@ https://mcp.exa.ai/mcp/oauth
 Both can be combined with the `tools` parameter:
 
 ```
-https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa,agent_tools&login
-https://mcp.exa.ai/mcp/oauth?tools=web_search_exa,web_fetch_exa,agent_tools
+https://mcp.exa.ai/mcp?tools=WebSearch,web_fetch_exa,agent_tools&login
+https://mcp.exa.ai/mcp/oauth?tools=WebSearch,web_fetch_exa,agent_tools
 ```
 
 ## Agent Skills (Claude Skills)
@@ -380,7 +380,7 @@ Step 1: Install or update Exa MCP
 
 If Exa MCP already exists in your MCP configuration, either uninstall it first and install the new one, or update your existing MCP config with this endpoint. Run this command in your terminal:
 
-claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=web_search_advanced_exa"
+claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=WebSearchAdvanced"
 
 
 Step 2: Add this Claude skill
@@ -395,7 +395,7 @@ context: fork
 
 ## Tool Restriction (Critical)
 
-ONLY use `web_search_advanced_exa`. Do NOT use `web_search_exa` or any other Exa tools.
+ONLY use `WebSearchAdvanced`. Do NOT use `WebSearch` or any other Exa tools.
 
 ## Token Isolation (Critical)
 
@@ -457,7 +457,7 @@ Auto-fallback to Claude in Chrome when:
 
 ### Discovery: find companies in a space
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "AI infrastructure startups San Francisco",
   "category": "company",
   "numResults": 20,
@@ -467,7 +467,7 @@ web_search_advanced_exa {
 
 ### Deep dive: research a specific company
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "Anthropic funding rounds valuation 2024",
   "type": "deep",
   "numResults": 10,
@@ -477,7 +477,7 @@ web_search_advanced_exa {
 
 ### News coverage
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "Anthropic AI safety",
   "category": "news",
   "numResults": 15,
@@ -487,7 +487,7 @@ web_search_advanced_exa {
 
 ### LinkedIn profiles
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "VP Engineering AI infrastructure",
   "category": "people",
   "numResults": 20
@@ -519,7 +519,7 @@ Step 1: Install or update Exa MCP
 
 If Exa MCP already exists in your MCP configuration, either uninstall it first and install the new one, or update your existing MCP config with this endpoint. Run this command in your terminal:
 
-claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=web_search_exa"
+claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=WebSearch"
 
 
 Step 2: Add this Claude skill
@@ -534,12 +534,12 @@ context: fork
 
 ## Tool Restriction (Critical)
 
-ONLY use `web_search_exa`. Do NOT use other Exa tools.
+ONLY use `WebSearch`. Do NOT use other Exa tools.
 
 ## Token Isolation (Critical)
 
 Never run Exa in main context. Always spawn Task agents:
-- Agent calls `web_search_exa`
+- Agent calls `WebSearch`
 - Agent extracts the minimum viable snippet(s) + constraints
 - Agent deduplicates near-identical results (mirrors, forks, repeated StackOverflow answers) before presenting
 - Agent returns copyable snippets + brief explanation
@@ -579,7 +579,7 @@ Before presenting:
   "servers": {
     "exa": {
       "type": "http",
-      "url": "https://mcp.exa.ai/mcp?tools=web_search_exa"
+      "url": "https://mcp.exa.ai/mcp?tools=WebSearch"
     }
   }
 }
@@ -603,7 +603,7 @@ Step 1: Install or update Exa MCP
 
 If Exa MCP already exists in your MCP configuration, either uninstall it first and install the new one, or update your existing MCP config with this endpoint. Run this command in your terminal:
 
-claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=web_search_advanced_exa"
+claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=WebSearchAdvanced"
 
 
 Step 2: Add this Claude skill
@@ -618,7 +618,7 @@ context: fork
 
 ## Tool Restriction (Critical)
 
-ONLY use `web_search_advanced_exa`. Do NOT use `web_search_exa` or any other Exa tools.
+ONLY use `WebSearchAdvanced`. Do NOT use `WebSearch` or any other Exa tools.
 
 ## Token Isolation (Critical)
 
@@ -680,7 +680,7 @@ Auto-fallback to Claude in Chrome when:
 
 ### Discovery: find people by role
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "VP Engineering AI infrastructure",
   "category": "people",
   "numResults": 20,
@@ -690,7 +690,7 @@ web_search_advanced_exa {
 
 ### With query variations
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "machine learning engineer San Francisco",
   "category": "people",
   "additionalQueries": ["ML engineer SF", "AI engineer Bay Area"],
@@ -701,7 +701,7 @@ web_search_advanced_exa {
 
 ### Deep dive: research a specific person
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "Dario Amodei Anthropic CEO background",
   "type": "auto",
   "numResults": 15
@@ -710,7 +710,7 @@ web_search_advanced_exa {
 
 ### News mentions
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "Dario Amodei interview",
   "category": "news",
   "numResults": 10,
@@ -743,7 +743,7 @@ Step 1: Install or update Exa MCP
 
 If Exa MCP already exists in your MCP configuration, either uninstall it first and install the new one, or update your existing MCP config with this endpoint. Run this command in your terminal:
 
-claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=web_search_advanced_exa"
+claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=WebSearchAdvanced"
 
 
 Step 2: Add this Claude skill
@@ -758,7 +758,7 @@ context: fork
 
 ## Tool Restriction (Critical)
 
-ONLY use `web_search_advanced_exa` with `category: "financial report"`. Do NOT use other categories or tools.
+ONLY use `WebSearchAdvanced` with `category: "financial report"`. Do NOT use other categories or tools.
 
 ## Filter Restrictions (Critical)
 
@@ -798,7 +798,7 @@ The `financial report` category has one known restriction:
 ## Token Isolation (Critical)
 
 Never run Exa searches in main context. Always spawn Task agents:
-- Agent calls `web_search_advanced_exa` with `category: "financial report"`
+- Agent calls `WebSearchAdvanced` with `category: "financial report"`
 - Agent merges + deduplicates results before presenting
 - Agent returns distilled output (brief markdown or compact JSON)
 - Main context stays clean regardless of search volume
@@ -816,7 +816,7 @@ Use this category when you need:
 
 SEC filings for a company:
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "Anthropic SEC filing S-1",
   "category": "financial report",
   "numResults": 10,
@@ -826,7 +826,7 @@ web_search_advanced_exa {
 
 Recent earnings reports:
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "Q4 2025 earnings report technology",
   "category": "financial report",
   "startPublishedDate": "2025-10-01",
@@ -837,7 +837,7 @@ web_search_advanced_exa {
 
 Specific filing type:
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "10-K annual report AI companies",
   "category": "financial report",
   "includeDomains": ["sec.gov"],
@@ -849,7 +849,7 @@ web_search_advanced_exa {
 
 Risk factors analysis:
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "risk factors cybersecurity",
   "category": "financial report",
   "includeText": ["cybersecurity"],
@@ -884,7 +884,7 @@ Step 1: Install or update Exa MCP
 
 If Exa MCP already exists in your MCP configuration, either uninstall it first and install the new one, or update your existing MCP config with this endpoint. Run this command in your terminal:
 
-claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=web_search_advanced_exa"
+claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=WebSearchAdvanced"
 
 
 Step 2: Add this Claude skill
@@ -899,7 +899,7 @@ context: fork
 
 ## Tool Restriction (Critical)
 
-ONLY use `web_search_advanced_exa` with `category: "publication"`. Do NOT use other categories or tools.
+ONLY use `WebSearchAdvanced` with `category: "publication"`. Do NOT use other categories or tools.
 
 ## Full Filter Support
 
@@ -939,7 +939,7 @@ The `publication` category supports ALL available parameters:
 ## Token Isolation (Critical)
 
 Never run Exa searches in main context. Always spawn Task agents:
-- Agent calls `web_search_advanced_exa` with `category: "publication"`
+- Agent calls `WebSearchAdvanced` with `category: "publication"`
 - Agent merges + deduplicates results before presenting
 - Agent returns distilled output (brief markdown or compact JSON)
 - Main context stays clean regardless of search volume
@@ -956,7 +956,7 @@ Use this category when you need:
 
 Recent papers on a topic:
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "transformer attention mechanisms efficiency",
   "category": "publication",
   "startPublishedDate": "2024-01-01",
@@ -967,7 +967,7 @@ web_search_advanced_exa {
 
 Papers from specific venues:
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "large language model agents",
   "category": "publication",
   "includeDomains": ["arxiv.org", "openreview.net"],
@@ -1002,7 +1002,7 @@ Step 1: Install or update Exa MCP
 
 If Exa MCP already exists in your MCP configuration, either uninstall it first and install the new one, or update your existing MCP config with this endpoint. Run this command in your terminal:
 
-claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=web_search_advanced_exa"
+claude mcp add --transport http exa "https://mcp.exa.ai/mcp?tools=WebSearchAdvanced"
 
 
 Step 2: Add this Claude skill
@@ -1017,7 +1017,7 @@ context: fork
 
 ## Tool Restriction (Critical)
 
-ONLY use `web_search_advanced_exa` with `category: "personal site"`. Do NOT use other categories or tools.
+ONLY use `WebSearchAdvanced` with `category: "personal site"`. Do NOT use other categories or tools.
 
 ## Full Filter Support
 
@@ -1055,7 +1055,7 @@ The `personal site` category supports ALL available parameters:
 ## Token Isolation (Critical)
 
 Never run Exa searches in main context. Always spawn Task agents:
-- Agent calls `web_search_advanced_exa` with `category: "personal site"`
+- Agent calls `WebSearchAdvanced` with `category: "personal site"`
 - Agent merges + deduplicates results before presenting
 - Agent returns distilled output (brief markdown or compact JSON)
 - Main context stays clean regardless of search volume
@@ -1073,7 +1073,7 @@ Use this category when you need:
 
 Technical blog posts:
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "building production LLM applications lessons learned",
   "category": "personal site",
   "numResults": 15,
@@ -1084,7 +1084,7 @@ web_search_advanced_exa {
 
 Recent posts on a topic:
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "Rust async runtime comparison",
   "category": "personal site",
   "startPublishedDate": "2025-01-01",
@@ -1095,7 +1095,7 @@ web_search_advanced_exa {
 
 Exclude aggregators:
 ```
-web_search_advanced_exa {
+WebSearchAdvanced {
   "query": "startup founder lessons",
   "category": "personal site",
   "excludeDomains": ["medium.com", "substack.com"],

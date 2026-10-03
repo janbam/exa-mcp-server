@@ -191,7 +191,7 @@ describe("advertised JSON Schema retains usable type info", () => {
     registerWebSearchTool(server as any);
     registerWebFetchTool(server as any);
 
-    for (const toolName of ["web_search_exa", "web_fetch_exa"]) {
+    for (const toolName of ["WebSearch", "web_fetch_exa"]) {
       const inputSchema = server.getTool(toolName).inputSchema as Record<string, z.ZodTypeAny>;
       expect(Object.keys(inputSchema).length, `${toolName} should expose fields`).toBeGreaterThan(0);
 

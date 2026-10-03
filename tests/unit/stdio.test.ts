@@ -55,13 +55,13 @@ describe("Stdio entrypoint", () => {
 
     const config = buildConfigFromEnv({
       EXA_API_KEY: "env-key",
-      ENABLED_TOOLS: "web_search_exa, web_fetch_exa",
+      ENABLED_TOOLS: "WebSearch, web_fetch_exa",
       DEBUG: "false",
     });
 
     expect(config).toEqual({
       exaApiKey: "env-key",
-      enabledTools: ["web_search_exa", "web_fetch_exa"],
+      enabledTools: ["WebSearch", "web_fetch_exa"],
       debug: false,
       exaSource: undefined,
       mcpSessionId: undefined,
@@ -86,14 +86,14 @@ describe("Stdio entrypoint", () => {
     const { buildConfigFromEnv } = await import("../../src/stdio.js");
 
     const config = buildConfigFromEnv({
-      TOOLS: "web_search_exa",
+      TOOLS: "WebSearch",
       DEBUG: "true",
       DEFAULT_SEARCH_TYPE: "fast",
     });
 
     expect(config).toEqual({
       exaApiKey: undefined,
-      enabledTools: ["web_search_exa"],
+      enabledTools: ["WebSearch"],
       debug: true,
       exaSource: undefined,
       mcpSessionId: undefined,
@@ -129,7 +129,7 @@ describe("Stdio entrypoint", () => {
 
     await main({
       EXA_API_KEY: "env-key",
-      ENABLED_TOOLS: "web_search_exa",
+      ENABLED_TOOLS: "WebSearch",
       DEBUG: "false",
     });
 
@@ -140,7 +140,7 @@ describe("Stdio entrypoint", () => {
       expect.anything(),
       expect.objectContaining({
         exaApiKey: "env-key",
-        enabledTools: ["web_search_exa"],
+        enabledTools: ["WebSearch"],
         userProvidedApiKey: true,
       }),
     );

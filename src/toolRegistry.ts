@@ -9,13 +9,13 @@ export type ToolMetadata = {
 };
 
 export const TOOL_REGISTRY = {
-  web_search_exa: {
+  WebSearch: {
     name: "Web Search (Exa)",
     description: "Real-time web search using Exa AI",
     enabled: true,
     group: "search",
   },
-  web_search_advanced_exa: {
+  WebSearchAdvanced: {
     name: "Advanced Web Search (Exa)",
     description: "Advanced web search with full Exa API control including category filters, domain restrictions, date ranges, highlights, summaries, and subpage crawling",
     enabled: false,
@@ -23,13 +23,13 @@ export const TOOL_REGISTRY = {
   },
   get_code_context_exa: {
     name: "Code Context Search (Deprecated)",
-    description: "Deprecated: Use web_search_exa instead. Search for code snippets, examples, and documentation from open source repositories",
+    description: "Deprecated: Use WebSearch instead. Search for code snippets, examples, and documentation from open source repositories",
     enabled: false,
     group: "search",
   },
   company_research_exa: {
     name: "Company Research (Deprecated)",
-    description: "Deprecated: Use web_search_advanced_exa instead. Research companies and organizations",
+    description: "Deprecated: Use WebSearchAdvanced instead. Research companies and organizations",
     enabled: false,
     group: "search",
   },
@@ -55,19 +55,19 @@ export const TOOL_REGISTRY = {
   },
   people_search_exa: {
     name: "People Search (Deprecated)",
-    description: "Deprecated: Use web_search_advanced_exa instead. Search for people and professional profiles",
+    description: "Deprecated: Use WebSearchAdvanced instead. Search for people and professional profiles",
     enabled: false,
     group: "search",
   },
   linkedin_search_exa: {
     name: "LinkedIn Search (Deprecated)",
-    description: "Deprecated: Use web_search_advanced_exa instead",
+    description: "Deprecated: Use WebSearchAdvanced instead",
     enabled: false,
     group: "search",
   },
   deep_search_exa: {
     name: "Deep Search (Deprecated)",
-    description: "Deprecated: Use web_search_advanced_exa instead. Deep search with query expansion and synthesized answers (requires API key)",
+    description: "Deprecated: Use WebSearchAdvanced instead. Deep search with query expansion and synthesized answers (requires API key)",
     enabled: false,
     group: "search",
     requiresUserProvidedApiKey: true,
